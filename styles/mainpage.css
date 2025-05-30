@@ -1,8 +1,7 @@
 body {
     /* background-image: url("../img/bg-1.jpg"); */
     background-color: #ffffff;
-  }
-
+}
 .songlistMalayalam {
     font-family:'helveticaneue-light';
 
@@ -14,40 +13,39 @@ body {
     border: 1px solid #e0e0e0;
 
 }
-
-
 .songlistMalayalam ol{
     padding-inline-start: 0px;
     margin-top: 20PX;
-
-
     list-style-position: inside;
-	
-
 }
-
-.songlistMalayalam li {
-    padding: 7px 0px 7px 0px;
-    margin: 9px 0px;;
-
-    padding: 0 0 0 1rem;
-
-}
-
 .songlistMalayalam li:first-child {
 	margin-top: 1rem;
 }
-
 .songlistMalayalam li:last-child {
 	margin-bottom: 1rem;
 }
-
 /* .songlistMalayalam li:not(:last-child) {
 	border-bottom: 1px solid lightblue;
 } */
-
 .songlistMalayalam li {
 	border-bottom: 1px solid lightblue;
+    padding: .5rem 0.8rem;
+    margin: .5rem 0.5rem;
+    border: 1px solid lightblue;
+    border-radius: 25px;
+
+    box-shadow: -1px 1px 6px 0px rgb(0 0 0 / 20%);
+    -webkit-box-shadow: -1px 1px 6px 0px rgb(0 0 0 / 20%);
+    -moz-box-shadow: -1px 1px 6px 0px rgb(0 0 0 / 20%);
+}
+.songlistMalayalam li:hover {
+  background-color: #e6f7ff; /* Light blue background on hover */
+  transform: scale(1.01);    /* Slight zoom effect */
+  cursor: pointer;           /* Changes cursor to pointer */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+.songlistMalayalam li a:hover {
+  text-decoration: none;
 }
 
 .songlistmain {

@@ -3,12 +3,10 @@ if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/scripts/sw.jss')
             .then((registration) => {
                 console.log('Service Worker registered with scope:', registration.scope);
-
                 // Force the waiting Service Worker to activate immediately
                 if (registration.waiting) {
                     registration.waiting.postMessage({ type: 'SKIP_WAITING' });
                 }
-
                 // Check for updates to the Service Worker
                 registration.onupdatefound = () => {
                     console.log('New Service Worker found. Installing...');

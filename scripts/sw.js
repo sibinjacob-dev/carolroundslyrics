@@ -16,8 +16,6 @@ const URLS_TO_CACHE = [
     // '../scripts/sw.js',        // Path to the Service Worker itself
     // '../styles/mainpage.css'
 ];
-
-
 // Install event - Cache the specified pages
 self.addEventListener('install', (event) => {
     console.log('Service Worker installing...');
@@ -28,7 +26,6 @@ self.addEventListener('install', (event) => {
         })
     );
 });
-
 // Fetch event - Serve files from cache
 self.addEventListener('fetch', (event) => {
     console.log('Service Worker fetching:', event.request.url);
@@ -38,7 +35,6 @@ self.addEventListener('fetch', (event) => {
         })
     );
 });
-
 // Activate event - Clean up old caches
 self.addEventListener('activate', (event) => {
     console.log('Service Worker activating...');
@@ -56,7 +52,6 @@ self.addEventListener('activate', (event) => {
         })
     );
 });
-
 // Handle manual skip waiting for updates
 self.addEventListener('message', (event) => {
     if (event.data && event.data.type === 'SKIP_WAITING') {

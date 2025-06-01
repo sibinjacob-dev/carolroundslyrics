@@ -48,6 +48,18 @@ body {
     text-decoration: none;
 }
 
+.songlistMalayalam ol li a {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.songlistMalayalam ol li a:hover {
+    background-color: #f0f0f0;
+}
+
 .songlistmain {
     font-family:'helveticaneue-light';
 }

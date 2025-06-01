@@ -44,9 +44,11 @@ body {
   cursor: pointer;           /* Changes cursor to pointer */
   transition: all 0.3s ease; /* Smooth transition */
 }
-.songlistMalayalam li a:hover {
+.songlistMalayalam:hover * {
     text-decoration: none;
 }
+
+
 
 .songlistMalayalam ol li a {
     display: block;

@@ -4,10 +4,12 @@
         <button type="button" id="font-down" aria-label="Decrease text size">A−</button>
         <button type="button" id="font-up" aria-label="Increase text size">A+</button>
         <button type="button" id="keep-awake" aria-pressed="false"><i class="fas fa-sun" aria-hidden="true"></i><span>Stay awake</span></button>
+        <button type="button" id="fullscreen-toggle" aria-pressed="false"><i class="fas fa-expand" aria-hidden="true"></i><span>Full screen</span></button>
       </div>
     </nav>
 
     <main class="lyricview" id="lyric-view" aria-live="polite">
+      <p class="song-number" id="song-number" hidden><span>Song</span><strong></strong></p>
       <h1 id="song-title">Loading lyrics…</h1>
       <div class="lyrics-content" id="lyrics-content"></div>
       <p class="lyrics-message" id="lyrics-message">Please wait.</p>
@@ -17,6 +19,7 @@
       <a id="previous-song" class="song-switch" hidden><i class="fas fa-chevron-left" aria-hidden="true"></i><span>Previous</span></a>
       <a id="next-song" class="song-switch song-switch-next" hidden><span>Next</span><i class="fas fa-chevron-right" aria-hidden="true"></i></a>
     </nav>
+    <button type="button" class="fullscreen-exit" id="fullscreen-exit" hidden><i class="fas fa-compress" aria-hidden="true"></i><span>Exit full screen</span></button>
 
     <noscript>
       <p class="lyrics-error">JavaScript is required to load the selected lyrics.</p>

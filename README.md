@@ -41,3 +41,11 @@ The build uses Node.js only and has no package dependencies. The old
 `SongsMalalam` misspelling is no longer used.
 
 Use `npm start` to preview the site at `http://127.0.0.1:4173`.
+
+## Offline and slow connections
+
+After the first successful visit, the browser stores the pages, styles, code,
+and lyric data for offline use. Songs then open without a network request. The
+lyric data refreshes quietly in the background when a connection is available,
+so a changed song appears on the next page load. Increment `CACHE_NAME` in
+`sw.js` when changing the application shell itself.

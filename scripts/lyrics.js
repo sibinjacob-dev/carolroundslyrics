@@ -1,5 +1,6 @@
 (() => {
   const titleElement = document.querySelector('#song-title');
+  const songNumber = document.querySelector('#song-number');
   const contentElement = document.querySelector('#lyrics-content');
   const messageElement = document.querySelector('#lyrics-message');
   const lyricView = document.querySelector('#lyric-view');
@@ -9,6 +10,8 @@
   const fontDown = document.querySelector('#font-down');
   const fontUp = document.querySelector('#font-up');
   const keepAwake = document.querySelector('#keep-awake');
+  const fullscreenToggle = document.querySelector('#fullscreen-toggle');
+  const fullscreenExit = document.querySelector('#fullscreen-exit');
   let wakeLock = null;
   let fontScale = 1;
 
@@ -49,6 +52,36 @@
     }
   };
   if (keepAwake) keepAwake.addEventListener('click', () => wakeLock ? wakeLock.release() : setWakeLock());
+
+  const syncFullscreenState = () => {
+    const active = Boolean(document.fullscreenElement);
+    document.body.classList.toggle('reader-fullscreen', active);
+    if (fullscreenToggle) {
+      fullscreenToggle.setAttribute('aria-pressed', String(active));
+      fullscreenToggle.querySelector('span').textContent = active ? 'Full screen' : 'Full screen';
+    }
+    if (fullscreenExit) fullscreenExit.hidden = !active;
+  };
+
+  const enterFullscreen = async () => {
+    if (!document.documentElement.requestFullscreen) {
+      fullscreenToggle.querySelector('span').textContent = 'Not supported';
+      fullscreenToggle.disabled = true;
+      return;
+    }
+    try {
+      await document.documentElement.requestFullscreen();
+      if (screen.orientation?.lock) await screen.orientation.lock('portrait').catch(() => {});
+    } catch {
+      // Some browsers only permit fullscreen in certain embedded contexts.
+    }
+  };
+
+  if (fullscreenToggle && fullscreenExit && typeof document.addEventListener === 'function') {
+    fullscreenToggle.addEventListener('click', () => document.fullscreenElement ? document.exitFullscreen() : enterFullscreen());
+    fullscreenExit.addEventListener('click', () => document.exitFullscreen());
+    document.addEventListener('fullscreenchange', syncFullscreenState);
+  }
 
   const showError = (message) => {
     titleElement.textContent = 'Lyrics not found';
@@ -133,6 +166,10 @@
       renderLines(song.lines);
       const listedSongs = collection.songs.filter((entry) => Number.isInteger(entry.order)).sort((a, b) => a.order - b.order);
       const position = listedSongs.findIndex((entry) => entry.slug === slug);
+      if (songNumber && position >= 0) {
+        songNumber.querySelector('strong').textContent = String(position + 1).padStart(2, '0');
+        songNumber.hidden = false;
+      }
       const setSongLink = (element, entry) => {
         if (!entry) return;
         if (!element) return;

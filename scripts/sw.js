@@ -1,20 +1,14 @@
 const CACHE_NAME = 'my-site-cache-v2'; // Increment version for updates
 const URLS_TO_CACHE = [
     '/',                     // Root or index.html
-    '../index.html'           // Main page
-    // '../e-index.html',           // About page
-    // '../SongsMalalam/m-dhayvadhoodhanmaar.html',
-    // '../SongsMalalam/m-muthe-muthe.html',
-    // '../SongsMalalam/m-naamchernupadidam.html',
-    // '../SongsMalalam/m-paadathepoyaalpora.html',
-    // '../SongsMalalam/m-pallimedayil.html',
-    // '../SongsMalalam/m-paloolithookia.html',
-    // '../SongsMalalam/m-patttuvirichamethakal.html',
-    // '../SongsMalalam/m-pulkudilil.html',
-    // '../SongsMalalam/m-sam-sam-sambramay.html',
-    // '../scripts/app.js',       // Path to app.js in the scripts folder
-    // '../scripts/sw.js',        // Path to the Service Worker itself
-    // '../styles/mainpage.css'
+    '../index.html',
+    '../lyrics.html',
+    '../SongsEnglish/songs.json',
+    '../SongsMalayalam/songs.json',
+    '../scripts/song-data.js',
+    '../scripts/index.js',
+    '../scripts/lyrics.js',
+    '../styles/mainpage.css'
 ];
 // Install event - Cache the specified pages
 self.addEventListener('install', (event) => {

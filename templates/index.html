@@ -1,0 +1,22 @@
+    <nav class="nav nav-pills nav-justified langHead" aria-label="Lyrics language">
+      <a class="nav-item nav-link active" href="index.html?lang=ml" data-language-tab="ml" aria-controls="songs-ml">മലയാളം</a>
+      <a class="nav-item nav-link" href="index.html?lang=en" data-language-tab="en" aria-controls="songs-en">Manglish</a>
+    </nav>
+
+    <main class="songlistmain">
+      <section class="songlistMalayalam arima-Malayalam" id="songs-ml" data-language-panel="ml" aria-labelledby="song-list-title-ml">
+        <h1>{{malayalamChurchName}}</h1>
+        <h2 id="song-list-title-ml">{{malayalamCollectionTitle}}</h2>
+        <ol>
+{{malayalamSongItems}}
+        </ol>
+      </section>
+
+      <section class="songlistMalayalam" id="songs-en" data-language-panel="en" aria-labelledby="song-list-title-en" hidden>
+        <h1>{{englishChurchName}}</h1>
+        <h2 id="song-list-title-en">{{englishCollectionTitle}}</h2>
+        <ol>
+{{englishSongItems}}
+        </ol>
+      </section>
+    </main>

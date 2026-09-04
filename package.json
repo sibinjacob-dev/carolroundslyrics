@@ -1,0 +1,9 @@
+{
+  "name": "carol-rounds-lyrics",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node --check scripts/index.js && node --check scripts/lyrics.js && node scripts/build.mjs --check && node scripts/test-index.mjs && node scripts/test-lyrics.mjs",
+    "start": "node scripts/serve.mjs"
+  }
+}

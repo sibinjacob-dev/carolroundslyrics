@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "song-language.schema.json",
+  "title": "Carol Rounds language song collection",
+  "type": "object",
+  "required": [
+    "language",
+    "htmlLang",
+    "indexFile",
+    "churchName",
+    "collectionTitle",
+    "description",
+    "fontClass",
+    "songs"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "language": { "enum": ["en", "ml"] },
+    "htmlLang": { "type": "string", "minLength": 2 },
+    "indexFile": { "type": "string", "pattern": "^[^/]+\\.html$" },
+    "churchName": { "type": "string", "minLength": 1 },
+    "collectionTitle": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "fontClass": { "type": "string" },
+    "songs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slug", "title", "lines"],
+        "additionalProperties": false,
+        "properties": {
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "title": { "type": "string", "minLength": 1 },
+          "listLabel": { "type": "string", "minLength": 1 },
+          "order": { "type": "integer", "minimum": 1 },
+          "lines": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          }
+        },
+        "dependentRequired": {
+          "listLabel": ["order"],
+          "order": ["listLabel"]
+        }
+      }
+    }
+  }
+}

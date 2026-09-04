@@ -1,33 +1,20 @@
-name: Update Last Updated Timestamp
+name: Validate generated site
+
 on:
   push:
-    branches:
-      - FirstRelease  # Trigger on push to the branch
   pull_request:
-    branches:
-      - FirstRelease  # Trigger on pull request to the branch
+
 jobs:
-  update-last-updated:
+  validate:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout the repository
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      # Step 2: Update the "Last Updated" placeholder
-      - name: Update Last Updated Timestamp
-        run: |
-          # Set the timezone to IST (UTC +5:30)
-          export TZ="Asia/Kolkata"
-          # Get the current date and time
-          current_datetime=$(date '+%B %d, %Y, %I:%M:%S %p')
-        
-      # Step 3: Commit and push changes (if any)
-      - name: Commit and push changes
-        run: |
-          # git config --local user.name "github-actions"
-          # git config --local user.email "github-actions@users.noreply.github.com"
-          # git add . 
-          # git commit -m "Update last updated timestamp in e-index.html and Songs folder"
-          # git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify generated pages
+        run: npm run check

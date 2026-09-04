@@ -24,6 +24,15 @@
 </head>
 <body class="song-index-page">
   <div class="container-fluid site-shell">
+    <header class="brand-header">
+      <span class="brand-mark" aria-hidden="true"><i class="fas fa-music"></i></span>
+      <div>
+        <p class="eyebrow">CAROL ROUNDS</p>
+        <p class="brand-name">Songbook</p>
+      </div>
+      <span class="brand-season">2025</span>
+    </header>
+
     <nav class="nav nav-pills nav-justified langHead" aria-label="Lyrics language">
       <a class="nav-item nav-link active" href="index.html?lang=ml" data-language-tab="ml" aria-controls="songs-ml">മലയാളം</a>
       <a class="nav-item nav-link" href="index.html?lang=en" data-language-tab="en" aria-controls="songs-en">Manglish</a>
@@ -33,6 +42,8 @@
       <section class="songlistMalayalam arima-Malayalam" id="songs-ml" data-language-panel="ml" aria-labelledby="song-list-title-ml">
         <h1>തുരുത്തിക്കാട് മാർത്തോമ്മാ ഇടവക</h1>
         <h2 id="song-list-title-ml">കരോൾ റൗണ്ട്സ് ഗാനങ്ങൾ</h2>
+        <label class="song-search" for="song-search-ml"><i class="fas fa-search" aria-hidden="true"></i><span class="sr-only">Search Malayalam songs</span><input id="song-search-ml" type="search" placeholder="Search songs" autocomplete="off" data-song-search="ml"></label>
+        <p class="song-count" data-song-count="ml"></p>
         <ol>
           <li><a href="lyrics.html?lang=ml&amp;song=kannumkannum">കണ്ണും കണ്ണും കാത്തിരുന്നു</a></li>
           <li><a href="lyrics.html?lang=ml&amp;song=chandranumtharangalum">ചന്ദ്രനും താരങ്ങളും</a></li>
@@ -61,6 +72,8 @@
       <section class="songlistMalayalam" id="songs-en" data-language-panel="en" aria-labelledby="song-list-title-en" hidden>
         <h1>Thuruthicadu Mar Thoma Church</h1>
         <h2 id="song-list-title-en">Carol Rounds Songs</h2>
+        <label class="song-search" for="song-search-en"><i class="fas fa-search" aria-hidden="true"></i><span class="sr-only">Search Manglish songs</span><input id="song-search-en" type="search" placeholder="Search songs" autocomplete="off" data-song-search="en"></label>
+        <p class="song-count" data-song-count="en"></p>
         <ol>
           <li><a href="lyrics.html?lang=en&amp;song=kannumkannum">Kannum Kannum Kaathirunnu</a></li>
           <li><a href="lyrics.html?lang=en&amp;song=chandranumtharangalum">Chandranum Thaarangalum</a></li>

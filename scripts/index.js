@@ -38,5 +38,24 @@
     });
   }
 
+  for (const input of document.querySelectorAll('[data-song-search]')) {
+    if (typeof document.querySelector !== 'function') break;
+    const panel = document.querySelector(`[data-language-panel="${input.dataset.songSearch}"]`);
+    const items = [...panel.querySelectorAll('ol li')];
+    const count = document.querySelector(`[data-song-count="${input.dataset.songSearch}"]`);
+    const update = () => {
+      const query = input.value.trim().toLocaleLowerCase();
+      let visible = 0;
+      for (const item of items) {
+        const matches = item.textContent.toLocaleLowerCase().includes(query);
+        item.hidden = !matches;
+        if (matches) visible += 1;
+      }
+      count.textContent = query ? `${visible} song${visible === 1 ? '' : 's'} found` : `${items.length} songs`;
+    };
+    input.addEventListener('input', update);
+    update();
+  }
+
   selectLanguage(new URLSearchParams(window.location.search).get('lang'));
 })();

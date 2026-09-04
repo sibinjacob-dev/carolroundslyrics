@@ -1,13 +1,14 @@
 :root {
-    --page-background: #f4f7fb;
+    --page-background: #f5f2ed;
     --surface: #ffffff;
     --text: #243244;
     --muted: #667085;
-    --primary: #1769aa;
-    --primary-dark: #0f4f83;
-    --primary-soft: #eaf4fc;
-    --border: #d8e2ec;
-    --shadow: 0 8px 24px rgba(31, 50, 73, 0.1);
+    --primary: #195b75;
+    --primary-dark: #123c4e;
+    --primary-soft: #e4f0f1;
+    --border: #d9d6ce;
+    --accent: #bd852f;
+    --shadow: 0 10px 28px rgba(31, 43, 48, 0.10);
 }
 
 * {
@@ -30,6 +31,12 @@ a {
     width: min(calc(100% - 24px), 860px);
     margin: 0 auto;
 }
+
+.brand-header { display:flex; align-items:center; gap:12px; margin:22px 4px 16px; color:var(--primary-dark); }
+.brand-mark { display:grid; place-items:center; width:42px; height:42px; color:#fff; border-radius:13px; background:linear-gradient(145deg, var(--primary), var(--primary-dark)); box-shadow:0 6px 14px rgba(18,60,78,.22); }
+.eyebrow { margin:0 0 1px; color:var(--accent); font-size:.65rem; font-weight:600; letter-spacing:.16em; }
+.brand-name { margin:0; font-size:1.15rem; font-weight:600; letter-spacing:-.02em; }
+.brand-season { margin-left:auto; padding:5px 9px; color:var(--primary-dark); border:1px solid var(--border); border-radius:999px; font-size:.72rem; font-weight:600; }
 
 .langHead {
     display: grid;
@@ -72,6 +79,10 @@ a {
     background: var(--surface);
     box-shadow: var(--shadow);
 }
+
+.song-search { display:flex; align-items:center; gap:10px; margin:22px 0 0; padding:0 13px; border:1px solid var(--border); border-radius:12px; background:#fbfaf8; color:var(--muted); }
+.song-search input { width:100%; min-height:44px; border:0; outline:0; color:var(--text); background:transparent; font:inherit; }
+.song-count { margin:9px 2px -8px; color:var(--muted); font-size:.78rem; }
 
 .songlistMalayalam h1,
 .songlistMalayalam h2 {
@@ -133,28 +144,30 @@ a {
 }
 
 .song-nav {
-    margin: 12px 0;
+    display:flex; align-items:center; justify-content:space-between; gap:10px; margin:14px 0;
 }
 
-.lyricHead {
-    display: flex;
+.back-link, .reading-controls button {
+    display:inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    width: 100%;
-    padding: 12px 20px;
+    min-height:42px;
+    padding:9px 12px;
     color: var(--primary-dark);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 10px;
     background: var(--surface);
-    box-shadow: 0 3px 10px rgba(31, 50, 73, 0.1);
-    font-size: 1rem;
+    font:inherit;
+    font-size:.86rem;
     text-decoration: none;
-    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
-.lyricHead:hover,
-.lyricHead:focus-visible {
+.reading-controls { display:flex; gap:5px; }
+.reading-controls button { cursor:pointer; }
+.reading-controls #keep-awake.is-active { color:#fff; border-color:var(--primary); background:var(--primary); }
+.reading-controls button:disabled { opacity:.45; cursor:not-allowed; }
+.back-link:hover, .back-link:focus-visible, .reading-controls button:hover:not(:disabled), .reading-controls button:focus-visible {
     color: #ffffff;
     background: var(--primary);
     transform: translateY(-1px);
@@ -166,9 +179,16 @@ a {
     border-radius: 14px;
     background: var(--surface);
     box-shadow: var(--shadow);
-    font-size: clamp(1.05rem, 3vw, 1.3rem);
+    font-size: calc(clamp(1.05rem, 3vw, 1.3rem) * var(--lyric-scale, 1));
     line-height: 1.75;
 }
+
+.song-switcher { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
+.song-switch { display:flex; align-items:center; gap:8px; min-height:48px; padding:10px 14px; color:var(--primary-dark); border:1px solid var(--border); border-radius:12px; background:var(--surface); font-size:.9rem; text-decoration:none; }
+.song-switch-next { justify-content:flex-end; grid-column:2; }
+#previous-song[hidden] ~ .song-switch-next { grid-column:1 / -1; }
+
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
 .lyricview h1 {
     margin: 0 0 24px;

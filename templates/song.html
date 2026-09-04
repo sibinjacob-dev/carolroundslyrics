@@ -1,8 +1,10 @@
     <nav class="song-nav" aria-label="Song navigation">
-      <a href="index.html" class="lyricHead" id="home-link">
-        <i class="fas fa-home" aria-hidden="true"></i>
-        <span>Home</span>
-      </a>
+      <a href="index.html" class="back-link" id="home-link"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>All songs</span></a>
+      <div class="reading-controls" aria-label="Reading controls">
+        <button type="button" id="font-down" aria-label="Decrease text size">A−</button>
+        <button type="button" id="font-up" aria-label="Increase text size">A+</button>
+        <button type="button" id="keep-awake" aria-pressed="false"><i class="fas fa-sun" aria-hidden="true"></i><span>Stay awake</span></button>
+      </div>
     </nav>
 
     <main class="lyricview" id="lyric-view" aria-live="polite">
@@ -10,6 +12,11 @@
       <div class="lyrics-content" id="lyrics-content"></div>
       <p class="lyrics-message" id="lyrics-message">Please wait.</p>
     </main>
+
+    <nav class="song-switcher" aria-label="Change song">
+      <a id="previous-song" class="song-switch" hidden><i class="fas fa-chevron-left" aria-hidden="true"></i><span>Previous</span></a>
+      <a id="next-song" class="song-switch song-switch-next" hidden><span>Next</span><i class="fas fa-chevron-right" aria-hidden="true"></i></a>
+    </nav>
 
     <noscript>
       <p class="lyrics-error">JavaScript is required to load the selected lyrics.</p>

@@ -1,6 +1,6 @@
-const CACHE_NAME = 'carol-lyrics-shell-v3';
+const CACHE_NAME = 'carol-lyrics-shell-v6';
 const APP_SHELL = [
-  './', './index.html', './lyrics.html', './styles/mainpage.css?v=4.3.0',
+  './', './index.html', './lyrics.html', './styles/mainpage.css?v=4.6.0',
   './scripts/index.js', './scripts/lyrics.js', './scripts/song-data.js', './scripts/app.js'
 ];
 
